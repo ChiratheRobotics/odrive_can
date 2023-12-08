@@ -119,7 +119,7 @@ bool SocketCanIntf::read_nonblocking() {
     ssize_t n_received = recvmsg(socket_id_, &message, MSG_DONTWAIT);
     if (n_received < 0) {
         if (errno == EAGAIN || errno == EWOULDBLOCK) {
-            // std::cerr << "no message received" << std::endl;
+            std::cerr << "no message received" << std::endl;
             return false;
         } else {
             std::cerr << "Socket read failed: " << std::endl;
